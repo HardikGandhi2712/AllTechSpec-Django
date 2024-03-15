@@ -1,0 +1,108 @@
+<html>
+    <head><title>Admin Page</title>
+            <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        body {
+            font-family:poppins;
+            background-color: #333;
+            color: white;
+        }
+
+        .navbar {
+            border-radius: 80px;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 80px;
+        }
+
+        .navbar ul {
+            text-align: right;
+            color: white;
+            text-decoration: none;
+            list-style: none;
+            margin: 20px;
+            margin-top: 40px;
+
+        }
+
+        .navbar li {
+            margin: 20px;
+            display: inline;
+        }
+
+        .navbar li a:hover {
+            color: aqua;
+            border-bottom: red solid 4px;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .list{
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar img{
+            height:800px;
+
+        }
+
+        textarea {
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid black;
+            border-style: inset;
+        }
+
+        select{
+            font-size: 18px;
+            width: 200px;
+        }
+    </style>
+</head>
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <img src="/static/2logo.png" class="logo" align="left">
+    
+                <ul>
+                    <li><a href="/">Logout</a></li>
+    
+                </ul>
+            </nav>
+        </header>
+
+
+    <u><h1 style="text-align:center; margin-right: 50px;">Admin Dashboard</h1></u>
+    
+        <form method="POST">
+            <pre>
+            {% csrf_token %}
+            <font size="5">
+            Select operation : <select name="operation">
+                    <option value="display">Display</option>   
+                    <option value="insert">Insert</option>  
+                    <option value="update">Update</option>  
+                    <option value="delete">Delete</option>  
+            </select><br>
+
+
+            <input type="Submit" Value="Submit" style="height:50px;width:80px;font-size: 18px;margin-left: 225px;">
+        
+        
+        
+        </font>
+            
+        </form>
+        </pre>
+        </div>
+    </body>
+</html> 

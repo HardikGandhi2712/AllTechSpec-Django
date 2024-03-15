@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>Admin Login</title> 
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        body {
+            font-family:poppins;
+            background-color: #333;
+            color: white;
+        }
+
+        .navbar {
+            border-radius: 80px;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 100px;
+        }
+
+        .navbar ul {
+            text-align: right;
+            color: white;
+            text-decoration: none;
+            list-style: none;
+            margin: 20px;
+            margin-top: 40px;
+
+        }
+
+        .navbar li {
+            margin: 20px;
+            display: inline;
+        }
+
+        .navbar li a:hover {
+            color: aqua;
+            border-bottom: red solid 4px;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+
+        .navbar img{
+            height:800px;
+
+        }
+
+        .submission a{
+            color:grey;
+            text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+        }
+
+        .submission a:hover{
+            color:violet;
+        }
+
+    </style>
+</head>
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <img src="/static/2logo.png" class="logo" align="left"> 
+    
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/customer_register/">Customer Registrations</a></li>
+                    <li><a href="/customerlogin/">Customer Login </a></li>
+                    <li><a href="/Aboutus/" target="_blank">About Us</a></li>
+    
+                </ul>
+            </nav>
+        </header>
+
+        <u><h1 style="text-align:center; margin-right: 50px;">Admin Login</h1></u>
+    
+        <form method="POST">
+            <pre>
+            {% csrf_token %}
+            <font size="5">
+            Enter Username : <input type="text" name="username" size="70" placeholder="Enter Username..." required style="height: 25px;"><br>
+            Enter Password : <input type="password" name="pass11" size="40" placeholder="Enter Password..." required style="height: 25px;"><br>
+
+            <input type="Submit" Value="Login" style="height:50px;width:80px;font-size: 18px;margin-left: 250px;">
+
+            </font>
+            <hr>
+            <h2 align="center" class="submission">Not a Member? <a href="/customer_register/">Create Customer Account</a></h2><h2 align="center" class="submission">or Login as Customer? <a href="/customerlogin/">Customer Login</a></h2>
+        </form>
+        </pre>
+        </div>
+        <script type="text/javascript">
+            var msgvalue="{{ msg }}";
+            if (msgvalue!=""){
+                alert(msgvalue);
+            }
+        </script>
+    </body>
+</html> 

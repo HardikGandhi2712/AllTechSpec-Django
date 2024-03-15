@@ -1,0 +1,154 @@
+<html>
+    <head><title>Update Product Details</title>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            background-color: #333;
+            font-family: poppins;
+        }
+
+        .navbar {
+            border-radius: 80px;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 100px;
+        }
+
+        .navbar ul {
+            text-align: right;
+            color: white;
+            text-decoration: none;
+            list-style: none;
+            margin: 20px;
+            margin-top: 40px;
+
+        }
+
+        .navbar li {
+            margin: 20px;
+            display: inline;
+        }
+
+        .navbar li a:hover {
+            color: aqua;
+            border-bottom: red solid 4px;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo {
+            height: 170px;
+            width: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        .list {
+            width: 1721px;
+            float: left;
+            background-color: white;
+            height: fit-content;
+        }
+
+        .slide {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        input {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        textarea {
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid black;
+            border-style: inset;
+        }
+
+        .btn a:hover{
+            background-color:#007bff50;
+        }
+
+        .btn a{
+            text-decoration: none;
+            font-family: poppins;
+            background-color:#007bff;
+            color:white;
+            text-decoration: none;
+            border-radius: 20px;
+            padding:10px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+    </style>
+</head>
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <img src="/static/2logo.png" class="logo" align="left">
+    
+                <ul>
+                    <li><a href="/adminpage">Home</a></li>
+                    <li><a href="/">Logout</a></li>
+    
+                </ul>
+            </nav>
+        </header>
+
+        <div class="list">
+        <br><br>
+        <h1 align="center" ><u>Find Product</u></h1>
+
+        <div class="slide">
+            <pre>
+    
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <font size="5">
+            Enter Product Id : <input type="number" name="pid" size="20" value="{{pid}}" required><br>
+            <input type="submit" value="Find record" name="f" style="height:50px;width:120px;font-size: 15px;">  
+
+            <hr>
+            <h1 align="center" style="font-size:30px;font-family: poppins;"><u>Update Product</u></h1>
+            Enter Product Name : <input type="text" name="pname" size="20" value="{{pname}}"><br>
+            Enter SDescription :
+            <textarea cols="130" rows="4" name="Sdescription">{{Sdescription}}</textarea><br>
+            Enter LDescription: 
+            <textarea cols="130" rows="15" name="Ldescription">{{Ldescription}}</textarea><br>
+            Enter Price : <input type="number" name="price" value="{{price}}"><br>
+            Enter Category : <input type="text" name="category" size="20" value="{{category}}"><br>
+            Current Photo 1 :
+            <img src="/image/{{photo1}}" height="150" width="200">
+            Change Photo 1 : <input type="file" name="photo1"><br>
+            Current Photo 2 : 
+            <img src="/image/{{photo2}}" height="150" width="200">
+            Change Photo 2 :<input type="file" name="photo2"><br>
+            Current Photo 3 : 
+            <img src="/image/{{photo3}}" height="150" width="200">
+            Change Photo 3 :<input type="file" name="photo3"><br>
+            <input type="submit" value="Update record" name="u" style="height:50px;width:120px;font-size: 15px;"><br>
+        <div class="btn"><h3 align="center"><a href="/adminpage"> Go Back </a></h3>
+        </div>
+            </form>
+        </pre>
+        </div>
+        <script type="text/javascript">
+            var msgvalue="{{ msg }}";
+            if (msgvalue!=""){
+                alert(msgvalue);
+            }
+        </script>
+    </body>
+</html> 

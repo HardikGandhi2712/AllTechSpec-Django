@@ -1,0 +1,232 @@
+<html>
+<head> <title>All Tech Spec</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+    body {
+        background-color: black;
+        background-image: url("/static/cover2.png");
+        background-repeat: no-repeat;
+        background-size:contain;
+        font-family: poppins;
+    }
+
+    .navbar {
+        border-radius: 80px;
+        padding: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .navbar ul {
+        text-align: right;
+        color: white;
+        text-decoration: none;
+        list-style: none;
+        margin: 20px;
+
+    }
+
+    .navbar li {
+        margin: 20px;
+        display: inline;
+
+    }
+
+    .navbar li a:hover {
+        color: aqua;
+        border-bottom: red solid 4px;
+    }
+
+    .navbar li a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+
+    .logo {
+        height: 150px;
+        width: 180px;
+        border-radius: 50%
+    }
+
+
+
+    .images {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+
+    }
+
+
+
+    .images a:hover {
+        border: 5px solid red;
+        border-radius: 5px;
+
+    }
+
+    .images a {
+        display: flex;
+        flex-direction: column;
+        margin-right: 140px;
+        margin-left: 80px;
+
+    }
+
+    .label {
+        color: white;
+        font-size: 25px;
+        text-decoration: none;
+        margin-left: 200px;
+        margin-right: 180px;
+    }
+
+    h2 {
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 50px;
+        text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    }
+
+    td{
+        color: white;
+    }
+
+
+
+    .light-gray {
+        background: #ddd;
+    }
+
+
+    #main-footer{
+        background: #265ede;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        color:#fff;
+    }
+
+    .bg-primary {
+    background: #265ede;
+    color: #fff;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box h3 {
+        width: 80%;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 25px;
+        text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+    }
+
+    .container .box {
+        height: 250px;
+        width: 400px;
+        padding: 20px;
+        margin-left:70px;
+        margin-bottom: 120px;
+        margin-right: 60px;
+    }
+
+    .container .item {
+        display: block;
+    }
+
+    .tables th{
+        padding-top: 30px;
+        padding-right: 50px;
+    }
+
+    .tables td{
+        padding:20px;
+        padding-right:30px;
+    }
+        
+</style>
+</head>
+<body>
+   
+    <header>
+        <nav class="navbar">
+            <img src="/static/2logo.png" class="logo" align="left">
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#products">Our Products</a></li>
+                <li><a href="/customerlogin">Login</a></li>
+                <li><a href="/customer_register">Register</a></li>
+                <li><a href="/Aboutus" target="_blank">About Us</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <br>
+
+    <h2 id="products" style="margin-top: 900px;">Sneak Peaks</h2><br>
+        <div class="tables">
+        <table border="4px">
+            <tr>
+                <th><h4 class="label">Mobiles</h4></th>
+                <th><h4 class="label">Laptops</h4></th>
+                <th><h4 class="label">Televisions</h4></th>
+            </tr>
+            <tr> 
+                <td align="center">{{rec_m.0}}</td>  
+                <td align="center">{{rec_l.0}}</td>    
+                <td align="center">{{rec_t.0}}</td>
+            </tr>
+            <tr> 
+                <td align="center"><img src="/image/{{rec_m.1}}" height="200" width="100"></td>  
+                <td align="center"> <img src="/image/{{rec_l.1}}" height="200" width="200"></td>    
+                <td align="center"><img src="/image/{{rec_t.1}}" height="200" width="250"></td>
+            </tr>
+            <tr>
+                <td align="center">{{rec_m.2}} <br><br><button><a href="/customerlogin" style="text-decoration:none;color:black;">View More</a></button></td>  
+                <td align="center">{{rec_l.2}} <br><br><button><a href="/customerlogin" style="text-decoration:none;color:black;">View More</a></button></td>    
+                <td align="center">{{rec_t.2}} <br><br><button><a href="/customerlogin" style="text-decoration:none;color:black;">View More</a></button></td>
+            </tr>
+        </table>
+        </div>
+    <br><br><br><br><br>
+
+    <hr width="1000px"><br><br>
+    <h2 class="headings">Feedback Of Customers</h2><br>
+    
+    <div class="container">
+        {% for f in rec_f %}
+        <div class="box" style='background-color:{% cycle '#265ede' '#ddd' %}'>
+            <ul>
+                <h3><li class="item" style='color:{% cycle 'white' '#ddd' %}'>{{ f.0 }}</li></h3>
+                <b><li style='display:block;color:{% cycle 'white' 'black' %}''>{{ f.1 }}</li></b>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    <hr width="1000px">
+        <br><br><br><br>
+
+    <footer id="main-footer">
+          
+        <p>
+        &copy; 2023. All TechSpec. All rights reserved.
+        </p>
+
+  </footer>
+
+</body>
+
+</html>

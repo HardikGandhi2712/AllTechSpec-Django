@@ -1,0 +1,161 @@
+<html>
+    <head><title>Update Your Details</title>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            background-color: black;
+            font-family: poppins;
+        }
+
+        .navbar {
+            border-radius: 80px;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 100px;
+        }
+
+        .navbar ul {
+            text-align: right;
+            color: white;
+            text-decoration: none;
+            list-style: none;
+            margin: 20px;
+            margin-top: 40px;
+
+        }
+
+        .navbar li {
+            margin: 20px;
+            display: inline;
+        }
+
+        .navbar li a:hover {
+            color: aqua;
+            border-bottom: red solid 4px;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo {
+            height: 170px;
+            width: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        .list {
+            width: 1721px;
+            float: left;
+            background-color:white;
+            height: fit-content;
+        }
+
+        .slide {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        input {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        textarea {
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid black;
+            border-style: inset;
+        }
+
+        .btn a:hover{
+            background-color:#007bff50;
+        }
+
+        .btn a{
+            text-decoration: none;
+            font-family: poppins;
+            background-color:#007bff;
+            color:white;
+            text-decoration: none;
+            border-radius: 20px;
+            padding:10px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+    </style>
+</head>
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <img src="/static/2logo.png" class="logo" align="left">
+    
+                <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/Mobile">Mobiles</a></li>
+                <li><a href="/Laptop">Laptops</a></li>
+                <li><a href="/Television">Televisions</a></li>
+                <li><a href="/cart_display">Cart</a></li>
+                <li><a href="/feed">Feedback</a></li>
+                <li><a href="/">Logout</a></li>
+
+    
+                </ul>
+            </nav>
+        </header>
+
+        <div class="list">
+        <h1 align="center"><u>Update Details</u></h1>
+
+        <div class="slide">
+        
+        <pre>
+    
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <font size="5">
+            Customer Name : <input type="text" name="cname" size="30" value="{{cname}}"><br>
+            Contact Number : <input type="text" name="contact" size="30" value="{{contact}}"><br>
+            Email Id : <input type="text" name="email" size="50" value="{{email}}" disabled>  <p>            *Email cannot be changed</p> 
+            <input type="submit" value="Update Details" name="u" style="height:50px;width:120px;font-size: 15px;"><br>   
+            <script type="text/javascript">
+                var msgvalue="{{ msg }}";
+                if (msgvalue!=""){
+                    alert(msgvalue);
+                }
+            </script>     
+        </form> </pre>
+        </div>
+<br>
+        <hr>
+
+
+        <div class="slide">
+        <h3 align="center"><u>Change Password</u></h3> 
+            <pre>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <font size="5">
+            Old Password : <input type="password" name="pass_1" size="20" value="{{pass_1}}" required><br>
+            New Password : <input type="password" name="pass2" size="20" value="{{pass2}}" required><br>
+            Confirm New Password : <input type="password" name="pass3" size="20" value="{{pass3}}" required><br>
+
+            <input type="submit" value="Change Password" name="p" style="height:50px;width:150px;font-size: 15px;"><br>     </form> </pre>
+        </div>
+        <script type="text/javascript">
+            var msgvalue="{{ msg1 }}";
+            if (msgvalue!=""){
+                alert(msgvalue);
+            }
+        </script>       
+    </body>
+</html> 

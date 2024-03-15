@@ -1,0 +1,180 @@
+<html>
+    <head><title>Delete Product</title>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            background-color: #333;
+            font-family: poppins;
+        }
+
+        .navbar {
+            border-radius: 80px;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 100px;
+        }
+
+        .navbar ul {
+            text-align: right;
+            color: white;
+            text-decoration: none;
+            list-style: none;
+            margin: 20px;
+            margin-top: 40px;
+
+        }
+
+        .navbar li {
+            margin: 20px;
+            display: inline;
+        }
+
+        .navbar li a:hover {
+            color: aqua;
+            border-bottom: red solid 4px;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo {
+            height: 170px;
+            width: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        .list {
+            width: 1721px;
+            float: left;
+            background-color: white;
+            height: fit-content;
+        }
+
+        .slide {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        input {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        textarea {
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid black;
+            border-style: inset;
+        }
+
+        .btn a:hover{
+            background-color:#007bff50;
+        }
+
+        .btn a{
+            text-decoration: none;
+            font-family: poppins;
+            background-color:#007bff;
+            color:white;
+            text-decoration: none;
+            border-radius: 20px;
+            padding:10px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        
+        table{
+        border-collapse: collapse;
+        }
+
+        td,th{
+            padding:15px;
+            font-size: large;
+            border:1px solid black;
+        }
+
+    </style>
+</head>
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <img src="/static/2logo.png" class="logo" align="left">
+    
+                <ul>
+                    <li><a href="/adminpage">Home</a></li>
+                    <li><a href="/">Logout</a></li>
+    
+                </ul>
+            </nav>
+        </header>
+
+        <div class="list">
+        <h1 align="center"><u>Delete Record</u></h1>
+        <div class="btn"><h3 align="left" style="margin-left:50px;"><a href="/adminpage"> Go Back </a></h3>
+        </div>
+        <div class="slide">
+            <pre>
+            <form method="POST" enctype="multipart/form-data">
+                <font size="5">
+                {% csrf_token %}
+    Enter Product Id : <input type="number" name="pid"> <br>
+    <input type="submit" value="Delete Record" name="Submit" style="height:50px;width:120px;font-size: 15px;"> <br><br>
+        <table border="4px">
+            <tr>
+                <th><b>Photos</b></th>
+                <th><b>Description</b></th>
+            </tr>
+            {% for r in rec %}
+            <tr>
+                <td rowspan="3"><img src="/image/{{r.photo1}}" height="150" width="200"></td>
+            </tr>
+            <tr>
+                <td><b> Product Name - </b>{{r.pname}}</td>
+            </tr>
+            <tr>
+                <td><b> Product ID - </b>{{r.pid}}</td>
+            </tr>
+            <tr>
+                <td rowspan="3"><img src="/image/{{r.photo2}}" height="150" width="200"></td>
+            </tr>
+            <tr>
+                <td><b> Long Description - </b>{{r.Ldescription}}</td>
+            </tr>
+            <tr>
+                <td><b> Short Description - </b>{{r.Sdescription}}</td>
+            </tr>
+            <tr>
+                <td rowspan="3" style="border-bottom:4px solid black"><img src="/image/{{r.photo3}}" height="150" width="200"></td>
+            </tr>
+            <tr>
+                <td><b> Category - </b>{{r.category}}</td>
+            </tr>
+            <tr>
+                <td style="border-bottom:4px solid black"><b> Price - </b>₹{{r.price}}</td>
+            </tr>
+            {% endfor %}
+        </table> 
+        <div class="btn"><h3 align="center"><a href="/adminpage"> Go Back </a></h3>
+        </div>
+            </form>
+    </font>
+        </pre>
+        </div>
+        <script type="text/javascript">
+            var msgvalue="{{ msg1.msg1 }}";
+            if (msgvalue!=""){
+                alert(msgvalue);
+            }
+        </script>
+    </body>
+</html> 

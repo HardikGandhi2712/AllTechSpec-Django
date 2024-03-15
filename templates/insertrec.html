@@ -1,0 +1,146 @@
+<html>
+    <head><title>Insert Product Details</title>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            background-color: #333;
+            font-family: poppins;
+        }
+
+        .navbar {
+            border-radius: 80px;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 100px;
+        }
+
+        .navbar ul {
+            text-align: right;
+            color: white;
+            text-decoration: none;
+            list-style: none;
+            margin: 20px;
+            margin-top: 40px;
+
+        }
+
+        .navbar li {
+            margin: 20px;
+            display: inline;
+        }
+
+        .navbar li a:hover {
+            color: aqua;
+            border-bottom: red solid 4px;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo {
+            height: 170px;
+            width: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        .list {
+            width: 1721px;
+            float: left;
+            background-color: white;
+            height: fit-content;
+        }
+
+        .slide {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        input {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        textarea {
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid black;
+            border-style: inset;
+        }
+
+        .btn a:hover{
+            background-color:#007bff50;
+        }
+
+        .btn a{
+            text-decoration: none;
+            font-family: poppins;
+            background-color:#007bff;
+            color:white;
+            text-decoration: none;
+            border-radius: 20px;
+            padding:10px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+    </style>
+</head>
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <img src="/static/2logo.png" class="logo" align="left">
+    
+                <ul>
+                    <li><a href="/adminpage">Home</a></li>
+                    <li><a href="/">Logout</a></li>
+    
+                </ul>
+            </nav>
+        </header>
+
+        <div class="list">
+        <h1 align="center"><u>Insert Record</u></h1>
+
+        <div class="slide">
+            <pre>
+    
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <font size="5">
+                Enter Product Name : <input type="text" name="pname" size="40" required><br>
+                Enter SDescription : 
+                <textarea cols="130" rows="4" name="Sdescription" required></textarea><br>
+                Enter LDescription: 
+                <textarea cols="130" rows="15" name="Ldescription" required></textarea><br>
+                Enter Price : <input type="number" name="price" size="20" required><br>
+                Enter Category :<select name="category" required>
+                    <option value="Mobile">Moblie</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Television">Television</option>
+                  </select><br>
+                Select Photo 1 : <input type="file" name="photo1" required><br>
+                Select Photo 2 : <input type="file" name="photo2" required><br>
+                Select Photo 3 : <input type="file" name="photo3" required><br>
+                <input type="submit" value="Insert Record" style="height:50px;width:120px;font-size: 15px;""><br>
+        <div class="btn"><h3 align="center"><a href="/adminpage"> Go Back </a></h3>
+        </div>
+            </form>
+        </pre>
+        </div>
+        <script type="text/javascript">
+            var msgvalue="{{ msg }}";
+            if (msgvalue!=""){
+                alert(msgvalue);
+            }
+        </script>
+    </body>
+</html> 
